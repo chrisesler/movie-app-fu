@@ -10,6 +10,7 @@ import jsxA11Y from "eslint-plugin-jsx-a11y";
 import prettier from "eslint-plugin-prettier";
 import react from "eslint-plugin-react";
 import unusedImports from "eslint-plugin-unused-imports";
+import stylistic from "@stylistic/eslint-plugin";
 import globals from "globals";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -54,6 +55,7 @@ const eslitConfig = [
   ),
   {
     plugins: {
+      "@stylistic": stylistic,
       react: fixupPluginRules(react),
       "unused-imports": unusedImports,
       import: fixupPluginRules(_import),
@@ -169,6 +171,25 @@ const eslitConfig = [
           next: ["const", "let", "var"],
         },
       ],
+
+      /*
+       * Stylistic rules
+       * see: https://eslint.style/rules/js
+       */
+
+      "@stylistic/array-element-newline": [
+        "error",
+        {
+          ArrayExpression: "consistent",
+          ArrayPattern: { minItems: 3 },
+        },
+      ],
+
+      "@stylistic/array-bracket-newline": ["error", "consistent"],
+      "@stylistic/multiline-comment-style": ["error", "starred-block"],
+      "@stylistic/max-statements-per-line": ["error", { max: 1 }],
+      "@stylistic/arrow-parens": ["error", "always"],
+      "@stylistic/eol-last": ["error", "always"],
     },
   },
 ];
