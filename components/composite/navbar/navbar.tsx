@@ -1,4 +1,5 @@
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 import {
   Accordion,
@@ -344,8 +345,12 @@ const Navbar = () => {
                     </a>
                   </div>
                   <div className="mt-2 flex flex-col gap-3">
-                    <Button variant={"outline"}>Log in</Button>
-                    <Button>Sign up</Button>
+                    <SignedOut>
+                      <SignInButton />
+                    </SignedOut>
+                    <SignedIn>
+                      <UserButton />
+                    </SignedIn>
                   </div>
                 </div>
               </SheetContent>
