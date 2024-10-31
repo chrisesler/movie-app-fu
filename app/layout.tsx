@@ -2,6 +2,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ClerkProvider } from "@clerk/nextjs";
 import localFont from "next/font/local";
 
+import Navbar from "@/components/composite/navbar/navbar";
+
 import type { Metadata } from "next";
 
 import "./globals.css";
@@ -32,6 +34,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <Navbar />
           {children}
           <SpeedInsights />
         </body>
