@@ -22,7 +22,16 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
+console.log(globals.HTMLAllCollection);
+
 const eslitConfig = [
+  ...compat.config({
+    env: {
+      browser: true,
+      es2022: true,
+      node: true,
+    },
+  }),
   { files: ["**/*.{ts,tsx,js,jsx,md,mdx,css,yaml,yml}"] },
   {
     ignores: [
@@ -48,10 +57,10 @@ const eslitConfig = [
       "plugin:react/recommended",
       "plugin:prettier/recommended",
       "plugin:react-hooks/recommended",
-      "plugin:jsx-a11y/recommended",
+      // "plugin:jsx-a11y/recommended",
       "eslint:recommended",
-      "plugin:prettier/recommended",
-    ),
+      "plugin:prettier/recommended"
+    )
   ),
   {
     plugins: {
@@ -60,7 +69,7 @@ const eslitConfig = [
       "unused-imports": unusedImports,
       import: fixupPluginRules(_import),
       // "@typescript-eslint": typescriptEslint,
-      "jsx-a11y": fixupPluginRules(jsxA11Y),
+      // "jsx-a11y": fixupPluginRules(jsxA11Y),
       prettier: fixupPluginRules(prettier),
     },
 
@@ -68,6 +77,7 @@ const eslitConfig = [
       globals: {
         ...Object.fromEntries(Object.entries(globals.browser).map(([key]) => [key, "off"])),
         ...globals.node,
+        ...globals.browser,
         React: true,
       },
 
@@ -95,13 +105,21 @@ const eslitConfig = [
       "react/react-in-jsx-scope": "off",
       "react/react-in-ts-scope": "off",
       "react-hooks/exhaustive-deps": "off",
-      "jsx-a11y/click-events-have-key-events": "warn",
-      "jsx-a11y/interactive-supports-focus": "warn",
+      // "jsx-a11y/click-events-have-key-events": "warn",
+      // "jsx-a11y/interactive-supports-focus": "warn",
+      // "jsx-a11y/heading-has-content": "warn",
+      // "react/jsx-first-prop-new-line": ["warn", "never"],
+      // "jsx-a11y/anchor-is-valid": "warn",
       "prettier/prettier": "warn",
       "no-unused-vars": "off",
       "unused-imports/no-unused-vars": "off",
       "unused-imports/no-unused-imports": "warn",
       "object-curly-spacing": ["error", "always"],
+      semi: [
+        "error",
+        "always",
+      ],
+      // "no-unexpected-multiline": "error",
 
       "@typescript-eslint/no-unused-vars": [
         "warn",
@@ -112,12 +130,21 @@ const eslitConfig = [
         },
       ],
 
+      "@typescript-eslint/no-unused-expressions": "warn",
+      "@typescript-eslint/no-empty-object-type": [
+        "warn",
+        {
+          allowInterfaces: "always",
+          allowObjectTypes: "always",
+        },
+      ],
+
       "import/order": [
         "warn",
         {
           pathGroups: [
             {
-              pattern: "@material-ui/**",
+              pattern: "@clerk/**",
               group: "external",
               position: "after",
             },
@@ -141,19 +168,64 @@ const eslitConfig = [
         },
       ],
 
+      //"react/jsx-newline": ["warn", { prevent: false, allowMultilines: true }],
       "react/self-closing-comp": "warn",
+      "react/jsx-props-no-multi-spaces": "warn",
+      "react/jsx-props-no-spread-multi": "warn",
+      "react/jsx-no-useless-fragment": "warn",
 
       "react/jsx-sort-props": [
         "warn",
         {
           callbacksLast: true,
           shorthandFirst: true,
-          noSortAlphabetically: false,
-          reservedFirst: true,
+          noSortAlphabetically: true,
+          reservedFirst: false,
+          ignoreCase: false,
         },
       ],
 
-      "padding-line-between-statements": [
+      "react/jsx-tag-spacing": [
+        "warn",
+        {
+          closingSlash: "never",
+          beforeSelfClosing: "always",
+          afterOpening: "never",
+          beforeClosing: "never",
+        },
+      ],
+
+      "react/sort-comp": [
+        "warn",
+        {
+          order: [
+            "static-variables",
+            "static-methods",
+            "lifecycle",
+            "everything-else",
+            "render",
+          ],
+          groups: {
+            lifecycle: [
+              "displayName",
+              "propTypes",
+              "contextTypes",
+              "childContextTypes",
+              "defaultProps",
+              "state",
+              "constructor",
+              "getDerivedStateFromProps",
+              "componentDidMount",
+              "shouldComponentUpdate",
+              "getSnapshotBeforeUpdate",
+              "componentDidUpdate",
+              "componentWillUnmount",
+            ],
+          },
+        },
+      ],
+
+      /*"padding-line-between-statements": [
         "warn",
         {
           blankLine: "always",
@@ -170,7 +242,7 @@ const eslitConfig = [
           prev: ["const", "let", "var"],
           next: ["const", "let", "var"],
         },
-      ],
+      ],*/
 
       /*
        * Stylistic rules
@@ -186,7 +258,7 @@ const eslitConfig = [
       ],
 
       "@stylistic/array-bracket-newline": ["error", "consistent"],
-      "@stylistic/multiline-comment-style": ["error", "starred-block"],
+      //"@stylistic/multiline-comment-style": ["error", "starred-block"],
       "@stylistic/max-statements-per-line": ["error", { max: 1 }],
       "@stylistic/arrow-parens": ["error", "always"],
       "@stylistic/eol-last": ["error", "always"],

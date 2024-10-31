@@ -9,6 +9,6 @@
   "bracketSpacing": true,
   "endOfLine": "auto",
   "arrowParens": "always",
-  "trailingComma": "all",
+  "trailingComma": "es5",
   "multilineArraysWrapThreshold": 3
 }
