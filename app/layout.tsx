@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import HolyLoader from "holy-loader";
 
-import Navbar from "@/components/composite/navbar/navbar";
+import { ThemeProvider } from "@/lib/providers/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import { GridBg } from "@/components/composite/images";
+import { ScrollTop } from "@/components/composite/scroll";
+import { SiteFooter, SiteHeader } from "@/components/composite/site";
+import { TailwindIndicator } from "@/components/composite/tailwind";
 
 import "./globals.css";
 
@@ -34,8 +41,19 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        {children}
+        <HolyLoader color="#ccc" />
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          <div className="relative flex min-h-screen flex-col bg-background" vaul-drawer-wrapper="">
+            <GridBg />
+            <SiteHeader />
+            <div className="relative flex-1 py-4">{children}</div>
+            <SiteFooter />
+          </div>
+          <TailwindIndicator />
+          <ScrollTop />
+        </ThemeProvider>
+        <Analytics />
+        <Toaster />
         <SpeedInsights />
       </body>
     </html>

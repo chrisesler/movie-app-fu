@@ -192,6 +192,12 @@ const eslitConfig = [
       "react/jsx-props-no-multi-spaces": "warn",
       "react/jsx-props-no-spread-multi": "warn",
       "react/jsx-no-useless-fragment": "warn",
+      "react/no-unknown-property": [
+        "error",
+        {
+          ignore: ["vaul-drawer-wrapper"],
+        },
+      ],
 
       "react/jsx-sort-props": [
         "warn",

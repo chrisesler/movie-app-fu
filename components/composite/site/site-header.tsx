@@ -6,8 +6,8 @@ import { SiteMenu, SiteNav, SiteSettings } from "@/components/composite/site";
 
 export const SiteHeader = () => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container flex h-14 items-center space-x-4 sm:justify-between sm:space-x-0">
+    <header className="sticky top-0 z-40 w-full border-b bg-[#c94542]">
+      <div className="container flex h-15 items-center space-x-4 sm:justify-between sm:space-x-0">
         <SiteNav />
 
         <div className="flex flex-1 justify-end gap-2">

@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 import { cn } from "@/lib/utils";
@@ -52,4 +54,22 @@ const TabsContent = React.forwardRef<
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-export { Tabs, TabsList, TabsTrigger, TabsContent };
+const TabsLink = React.forwardRef<
+  React.ElementRef<typeof Link>,
+  React.ComponentPropsWithoutRef<typeof Link>
+>(({ href, prefetch = false, scroll = false, ...props }, ref) => {
+  const pathname = usePathname();
+
+  return (
+    <TabsTrigger
+      asChild
+      data-state={pathname === href ? "active" : "inactive"}
+      value={href as string}
+    >
+      <Link replace ref={ref} href={href} prefetch={prefetch} scroll={scroll} {...props} />
+    </TabsTrigger>
+  );
+});
+TabsLink.displayName = "TabsLink"; // Set the display name for the component
+
+export { Tabs, TabsList, TabsTrigger, TabsContent, TabsLink };

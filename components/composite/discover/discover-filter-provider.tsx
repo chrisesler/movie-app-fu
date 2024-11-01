@@ -14,8 +14,8 @@ import {
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { InfoTooltip } from "@/components/info-tooltip";
-import { ProviderLogo } from "@/components/provider-logo";
+import { ProviderLogo } from "@/components/composite/provider";
+import { InfoTooltip } from "@/components/composite/tooltip";
 
 interface DiscoverFilterGenreProps {
   value: string;

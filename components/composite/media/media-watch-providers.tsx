@@ -1,3 +1,5 @@
+"use server";
+
 import { cookies } from "next/headers";
 
 import { tmdb } from "@/lib/tmdb/api";

@@ -7,9 +7,9 @@
     "url": "https://github.com/chrisesler"
   },
   "scripts": {
-    "dev": "NODE_ENV=development next dev",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=development next start",
+    "start": "next start",
     "lint": "next lint --quiet",
     "lint-staged": "lint-staged",
     "eslint": "eslint . --fix",
