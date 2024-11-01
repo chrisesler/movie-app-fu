@@ -1,6 +1,6 @@
 import { tmdb } from "@/lib/tmdb/api";
-import { MediaBackdrop } from "@/components/media-backdrop";
-import { MovieCollectionDialog } from "@/components/movie-collection-dialog";
+import { MediaBackdrop } from "@/components/composite/media";
+import { MovieCollectionDialog } from "@/components/composite/movie";
 
 interface MovieCollectionProps {
   id: number;

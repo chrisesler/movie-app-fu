@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 
 import { tmdb } from "@/lib/tmdb/api";
 import { PersonListType } from "@/lib/tmdb/api/types";
-import { ListPagination } from "@/components/list-pagination";
-import { PersonCard } from "@/components/person-card";
+import { ListPagination } from "@/components/composite/list";
+import { PersonCard } from "@/components/composite/person";
 
 interface PersonListProps {
   list: PersonListType;

@@ -15,9 +15,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { MediaBackdrop } from "@/components/media-backdrop";
-import { MediaMiniDetail } from "@/components/media-mini-detail";
-import { MediaPoster } from "@/components/media-poster";
+import { MediaBackdrop, MediaMiniDetail, MediaPoster } from "@/components/composite/media";
 
 interface MovieCollectionDialogProps {
   collection: DetailedCollection;

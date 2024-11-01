@@ -2,8 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import { Person } from "@/lib/tmdb/models";
-import { MediaCard } from "@/components/media-card";
-import { MediaPoster } from "@/components/media-poster";
+import { MediaCard, MediaPoster } from "@/components/composite/media";
 
 export const PersonCard: React.FC<Person> = ({ id, name, profile_path, known_for_department }) => {
   return (

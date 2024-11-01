@@ -9,7 +9,7 @@ import { getRandomItems } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { MediaBackdrop } from "@/components/media-backdrop";
+import { MediaBackdrop } from "@/components/composite/media";
 
 interface MovieHeroProps {
   movies: Movie[];

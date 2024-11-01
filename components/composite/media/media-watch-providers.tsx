@@ -3,8 +3,8 @@ import { cookies } from "next/headers";
 import { tmdb } from "@/lib/tmdb/api";
 import { WatchLocale } from "@/lib/tmdb/models";
 import { getCountryName } from "@/lib/utils";
-import { InfoTooltip } from "@/components/info-tooltip";
-import { ProviderTable } from "@/components/provider-table";
+import { ProviderTable } from "@/components/composite/provider";
+import { InfoTooltip } from "@/components/composite/tooltip";
 
 interface MediaWatchProvidersProps {
   id: string;
@@ -13,8 +13,8 @@ interface MediaWatchProvidersProps {
 
 export const MediaWatchProviders: React.FC<MediaWatchProvidersProps> = async ({ id, type }) => {
   const { results } = await tmdb[type].providers({ id });
-
-  const region = (cookies().get("region")?.value ?? "US") as keyof WatchLocale;
+  const cookieStore = await cookies();
+  const region = (cookieStore.get("region")?.value ?? "US") as keyof WatchLocale;
   const country = getCountryName(region);
 
   return (

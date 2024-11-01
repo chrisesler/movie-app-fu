@@ -1,9 +1,8 @@
 import { User } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-
-import { Badge, BadgeProps } from "./ui/badge";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { Badge, BadgeProps } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface MediaRatingProps extends BadgeProps {
   average: number;

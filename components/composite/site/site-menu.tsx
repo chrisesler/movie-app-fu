@@ -23,8 +23,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Separator } from "@/components/ui/separator";
-
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/composite/icons";
 
 export const SiteMenu = () => {
   const [open, setOpen] = useDialog();

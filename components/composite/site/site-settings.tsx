@@ -4,11 +4,12 @@ import { SettingsIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { RegionSelect } from "@/components/region-select";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { RegionSelect } from "@/components/composite/region";
+import { ThemeToggle } from "@/components/composite/theme";
 
 export const SiteSettings = async () => {
-  const region = cookies().get("region")?.value ?? "US";
+  const cookieStore = await cookies();
+  const region = cookieStore.get("region")?.value ?? "US";
 
   return (
     <Popover>

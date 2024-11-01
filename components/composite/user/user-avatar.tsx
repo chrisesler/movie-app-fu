@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { ProfileSize, tmdbImage } from "@/lib/tmdb/utils";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/composite/icons";
 
 interface UserAvatarProps extends ComponentProps<"div"> {
   image?: string;

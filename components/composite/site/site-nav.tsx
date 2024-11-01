@@ -15,7 +15,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/composite/icons";
 
 const SiteNav = () => {
   return (

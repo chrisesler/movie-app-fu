@@ -18,12 +18,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { DiscoverFilterDate } from "@/components/discover-filter-date";
-import { DiscoverFilterGenre } from "@/components/discover-filter-genre";
-import { DiscoverFilterLang } from "@/components/discover-filter-lang";
-import { DiscoverFilterProvider } from "@/components/discover-filter-provider";
-import { DiscoverFilterVoteAverage } from "@/components/discover-filter-vote-average";
-import { DiscoverFilterVoteCount } from "@/components/discover-filter-vote-count";
+import {
+  DiscoverFilterDate,
+  DiscoverFilterGenre,
+  DiscoverFilterLang,
+  DiscoverFilterProvider,
+  DiscoverFilterVoteAverage,
+  DiscoverFilterVoteCount,
+} from "@/components/composite/discover";
 
 interface DiscoverFiltersProps {
   type: "movie" | "tv";

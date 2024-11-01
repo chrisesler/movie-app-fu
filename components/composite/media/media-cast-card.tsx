@@ -1,8 +1,7 @@
 import Link from "next/link";
 
 import { Cast } from "@/lib/tmdb/models";
-import { MediaCard } from "@/components/media-card";
-import { MediaPoster } from "@/components/media-poster";
+import { MediaCard, MediaPoster } from "@/components/composite/media";
 
 export const MediaCastCard: React.FC<Cast> = ({ id, name, profile_path, character }) => (
   <Link href={`/person/${id}`} prefetch={false}>

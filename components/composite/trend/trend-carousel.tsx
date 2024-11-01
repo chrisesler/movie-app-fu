@@ -8,9 +8,9 @@ import { MovieWithMediaType, PersonWithMediaType, TvShowWithMediaType } from "@/
 import { cn } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { MovieCard } from "@/components/movie-card";
-import { PersonCard } from "@/components/person-card";
-import { TvCard } from "@/components/tv-card";
+import { MovieCard } from "@/components/composite/movie";
+import { PersonCard } from "@/components/composite/person";
+import { TvCard } from "@/components/composite/tv";
 
 interface TrendCarouselProps {
   title?: string;

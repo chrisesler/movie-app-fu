@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 
 import { tmdb } from "@/lib/tmdb/api";
-import { ListPagination } from "@/components/list-pagination";
-import { MovieCard } from "@/components/movie-card";
-import { PersonCard } from "@/components/person-card";
-import { TvCard } from "@/components/tv-card";
+import { ListPagination } from "@/components/composite/list";
+import { MovieCard } from "@/components/composite/movie";
+import { PersonCard } from "@/components/composite/person";
+import { TvCard } from "@/components/composite/tv";
 
 interface TrendListProps {
   type: "movie" | "tv" | "people";

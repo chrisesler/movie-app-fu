@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 
 import { tmdb } from "@/lib/tmdb/api";
 import { MovieListType } from "@/lib/tmdb/api/types";
-import { ListPagination } from "@/components/list-pagination";
-import { MovieCard } from "@/components/movie-card";
+import { ListPagination } from "@/components/composite/list";
+import { MovieCard } from "@/components/composite/movie";
 
 interface MovieListProps {
   list: MovieListType;
@@ -14,7 +14,8 @@ interface MovieListProps {
 }
 
 export const MovieList: React.FC<MovieListProps> = async ({ list, page, title, description }) => {
-  const region = cookies().get("region")?.value ?? "US";
+  const cookieStore = await cookies();
+  const region = cookieStore.get("region")?.value ?? "US";
 
   const {
     results,

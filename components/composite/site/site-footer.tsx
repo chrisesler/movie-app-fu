@@ -1,12 +1,11 @@
 import { ComponentProps } from "react";
 import Link from "next/link";
-import { Bug } from "lucide-react";
-import { Bug } from "lucide-react";
 
+import { Bug } from "lucide-react";
 import { navigation, siteConfig } from "@/config";
-import { buttonVariants } from "@/components/ui/button";
 
-import { Icons } from "@/components/icons";
+import { buttonVariants } from "@/components/ui/button";
+import { Icons } from "@/components/composite/icons";
 
 export const SiteFooter: React.FC<ComponentProps<"footer">> = () => {
   const year = new Date().getFullYear();

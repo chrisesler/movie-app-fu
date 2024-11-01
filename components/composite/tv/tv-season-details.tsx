@@ -4,10 +4,8 @@ import { tmdb } from "@/lib/tmdb/api";
 import { WithCredits } from "@/lib/tmdb/api/types";
 import { getUniqueItems } from "@/lib/utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MediaCastCard } from "@/components/media-cast-card";
-import { MediaCrewCard } from "@/components/media-crew-card";
-import { TvEpisodeCard } from "@/components/tv-episode-card";
-import { TvSeasonDialog } from "@/components/tv-season-dialog";
+import { MediaCastCard, MediaCrewCard } from "@/components/composite/media";
+import { TvEpisodeCard, TvSeasonDialog } from "@/components/composite/tv";
 
 interface TvSeasonDetailsProps extends DialogProps {
   id: string;

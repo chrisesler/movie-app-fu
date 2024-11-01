@@ -4,8 +4,7 @@ import { Episode } from "@/lib/tmdb/models";
 import { format } from "@/lib/tmdb/utils";
 import { formatValue, pad } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { MediaBackdrop } from "@/components/media-backdrop";
-import { MediaRating } from "@/components/media-rating";
+import { MediaBackdrop, MediaRating } from "@/components/composite/media";
 
 export const TvEpisodeCard: React.FC<Episode> = ({
   id,

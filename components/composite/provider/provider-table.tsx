@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ProviderLogo } from "@/components/provider-logo";
+import { ProviderLogo } from "@/components/composite/provider";
 
 interface ProviderTableProps {
   title: "Stream" | "Buy" | "Rent";

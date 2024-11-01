@@ -1,10 +1,8 @@
 import { Suspense } from "react";
 
 import { Skeleton } from "@/components/ui/skeleton";
-import { SearchInput } from "@/components/search-input";
-import { SiteMenu } from "@/components/site-menu";
-import { SiteNav } from "@/components/site-nav";
-import { SiteSettings } from "@/components/site-settings";
+import { SearchInput } from "@/components/composite/search";
+import { SiteMenu, SiteNav, SiteSettings } from "@/components/composite/site";
 
 export const SiteHeader = () => {
   return (

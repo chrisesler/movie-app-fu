@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { LogoSize, tmdbImage } from "@/lib/tmdb/utils";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/icons";
+import { Icons } from "@/components/composite/icons";
 
 interface ProviderLogoProps extends ComponentProps<"div"> {
   image?: string;

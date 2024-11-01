@@ -4,9 +4,7 @@ import Link from "next/link";
 import { TvShow } from "@/lib/tmdb/models";
 import { format } from "@/lib/tmdb/utils";
 import { formatValue } from "@/lib/utils";
-import { MediaCard } from "@/components/media-card";
-import { MediaPoster } from "@/components/media-poster";
-import { MediaRating } from "@/components/media-rating";
+import { MediaCard, MediaPoster, MediaRating } from "@/components/composite/media";
 
 export const TvCard: React.FC<TvShow> = ({
   id,

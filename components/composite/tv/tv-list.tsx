@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import { tmdb } from "@/lib/tmdb/api";
 import { TvListType } from "@/lib/tmdb/api/types";
 import { getUserTimezone } from "@/lib/utils";
-import { ListPagination } from "@/components/list-pagination";
-import { TvCard } from "@/components/tv-card";
+import { ListPagination } from "@/components/composite/list";
+import { TvCard } from "@/components/composite/tv";
 
 interface TvListProps {
   list: TvListType;
@@ -15,7 +15,8 @@ interface TvListProps {
 }
 
 export const TvList: React.FC<TvListProps> = async ({ list, page, title, description }) => {
-  const region = cookies().get("region")?.value ?? "US";
+  const cookieStore = await cookies();
+  const region = cookieStore.get("region")?.value ?? "US";
   const timezone = getUserTimezone();
 
   const {

@@ -3,7 +3,8 @@
 import { cookies } from "next/headers";
 
 export async function setRegion(region: string) {
-  (await cookies()).set("region", region, {
+  const cookieStore = await cookies();
+  cookieStore.set("region", region, {
     maxAge: 60 * 60 * 24 * 365,
   });
 }

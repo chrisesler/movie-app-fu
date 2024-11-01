@@ -1,8 +1,8 @@
 import { Review } from "@/lib/tmdb/models";
 import { format } from "@/lib/tmdb/utils";
 import { Skeleton } from "@/components/ui/skeleton";
-import { MediaRating } from "@/components/media-rating";
-import { UserAvatar } from "@/components/user-avatar";
+import { MediaRating } from "@/components/composite/media";
+import { UserAvatar } from "@/components/composite/user";
 
 interface UserReviewCardProps {
   review: Review;

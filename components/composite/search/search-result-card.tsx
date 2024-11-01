@@ -3,9 +3,7 @@ import Link from "next/link";
 import { MovieWithMediaType, PersonWithMediaType, TvShowWithMediaType } from "@/lib/tmdb/models";
 import { format } from "@/lib/tmdb/utils";
 import { Badge } from "@/components/ui/badge";
-import { MediaCard } from "@/components/media-card";
-import { MediaPoster } from "@/components/media-poster";
-import { MediaRating } from "@/components/media-rating";
+import { MediaCard, MediaPoster, MediaRating } from "@/components/composite/media";
 
 interface SearchResultCardProps {
   media: MovieWithMediaType | TvShowWithMediaType | PersonWithMediaType;
