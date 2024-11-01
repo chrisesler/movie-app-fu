@@ -6,7 +6,7 @@ import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
 import tsParser from "@typescript-eslint/parser";
 import _import from "eslint-plugin-import";
-import jsxA11Y from "eslint-plugin-jsx-a11y";
+//import jsxA11Y from "eslint-plugin-jsx-a11y";
 import prettier from "eslint-plugin-prettier";
 import react from "eslint-plugin-react";
 import unusedImports from "eslint-plugin-unused-imports";
@@ -22,8 +22,6 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-console.log(globals.HTMLAllCollection);
-
 const eslitConfig = [
   ...compat.config({
     env: {
@@ -36,6 +34,7 @@ const eslitConfig = [
   {
     ignores: [
       ".next/*",
+      ".cache/*",
       "**/*.css",
       "**/dist",
       "esm/*",
@@ -46,6 +45,7 @@ const eslitConfig = [
       "**/node_modules",
       "**/coverage",
       "**/.next",
+      "**/.cache",
       "**/build",
       "README.md",
     ],
@@ -79,6 +79,7 @@ const eslitConfig = [
         ...globals.node,
         ...globals.browser,
         React: true,
+        RequestInit: true,
       },
 
       parser: tsParser,
@@ -96,12 +97,18 @@ const eslitConfig = [
       react: {
         version: "detect",
       },
+      tailwindcss: {
+        callees: ["cn"],
+        config: "tailwind.config.js"
+      },
     },
 
     rules: {
+      "@next/next/no-html-link-for-pages": "off",
       "no-console": "warn",
       "react/prop-types": "off",
       "react/jsx-uses-react": "off",
+      "react/jsx-key": "off",
       "react/react-in-jsx-scope": "off",
       "react/react-in-ts-scope": "off",
       "react-hooks/exhaustive-deps": "off",
@@ -110,10 +117,11 @@ const eslitConfig = [
       // "jsx-a11y/heading-has-content": "warn",
       // "react/jsx-first-prop-new-line": ["warn", "never"],
       // "jsx-a11y/anchor-is-valid": "warn",
+      "tailwindcss/no-custom-classname": "off",
       "prettier/prettier": "warn",
       "no-unused-vars": "off",
       "unused-imports/no-unused-vars": "off",
-      "unused-imports/no-unused-imports": "warn",
+      "unused-imports/no-unused-imports": "error",
       "object-curly-spacing": ["error", "always"],
       semi: [
         "error",
@@ -149,6 +157,16 @@ const eslitConfig = [
               position: "after",
             },
             {
+              pattern: "@vercel/**",
+              group: "external",
+              position: "after",
+            },
+            {
+              pattern: "next/**",
+              group: "external",
+              position: "after",
+            },
+            {
               pattern: "@/**",
               group: "internal",
               position: "after",
@@ -158,8 +176,9 @@ const eslitConfig = [
           groups: [
             "builtin",
             "external",
+            "internal",
+            ["sibling", "parent"],
             "unknown",
-            ["internal", "sibling", "parent"],
             "index",
             "object",
             "type",
