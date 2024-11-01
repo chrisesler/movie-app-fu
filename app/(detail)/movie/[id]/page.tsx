@@ -1,18 +1,17 @@
 import Link from "next/link";
 import { format } from "@//lib/tmdb/utils";
 
+import { SimpleIdParams } from "@/types/params";
 import { tmdb } from "@/lib/tmdb/api";
 import { formatValue, joiner } from "@/lib/utils";
 import { MovieCollection } from "@/components/composite/movie";
 
 interface DetailProps {
-  params: {
-    id: string;
-  };
+  params: SimpleIdParams;
 }
 
-export default async function Detail({ params }: DetailProps) {
-  params = await params;
+export default async function Detail(props: DetailProps) {
+  const params = await props.params;
   const {
     status,
     release_date,

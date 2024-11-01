@@ -1,18 +1,14 @@
+import type { SimpleIdParams } from "@/types/params";
 import { tmdb } from "@/lib/tmdb/api";
 import { Crew as CrewType } from "@/lib/tmdb/models";
 import { Separator } from "@/components/ui/separator";
 import { MediaCastCard, MediaCrewCard } from "@/components/composite/media";
 
-type DetailCreditsParams = Promise<{
-  id: string;
-}>;
-/*interface DetailCreditsProps {
-  params: {
-    id: string;
-  };
+interface DetailCreditsProps {
+  params: SimpleIdParams;
 }
-*/
-export async function generateMetadata(props: { params: DetailCreditsParams }) {
+
+export async function generateMetadata(props: DetailCreditsProps) {
   const params = await props.params;
   const { title } = await tmdb.movie.detail({
     id: params.id,
@@ -23,7 +19,7 @@ export async function generateMetadata(props: { params: DetailCreditsParams }) {
   };
 }
 
-export default async function DetailCredits(props: { params: DetailCreditsParams }) {
+export default async function DetailCredits(props: DetailCreditsProps) {
   const params = await props.params;
 
   const { cast, crew } = await tmdb.movie.credits({ id: params.id });

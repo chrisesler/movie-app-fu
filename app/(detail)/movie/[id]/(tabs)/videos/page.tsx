@@ -1,14 +1,13 @@
+import { SimpleIdParams } from "@/types/params";
 import { tmdb } from "@/lib/tmdb/api";
 import { VideoList } from "@/components/composite/video";
 
 interface DetailVideosProps {
-  params: {
-    id: string;
-  };
+  params: SimpleIdParams;
 }
 
-export async function generateMetadata({ params }: DetailVideosProps) {
-  params = await params;
+export async function generateMetadata(props: DetailVideosProps) {
+  const params = await props.params;
   const { title } = await tmdb.movie.detail({
     id: params.id,
   });
@@ -18,6 +17,7 @@ export async function generateMetadata({ params }: DetailVideosProps) {
   };
 }
 
-export default function DetailVideos({ params }: DetailVideosProps) {
+export default async function DetailVideos(props: DetailVideosProps) {
+  const params = await props.params;
   return <VideoList type="movie" id={params.id} />;
 }

@@ -1,18 +1,16 @@
+import type { SimpleIdParams } from "@/types/params";
+import type { SearchPageParams } from "@/types/search";
 import { tmdb } from "@/lib/tmdb/api";
 import { ListPagination } from "@/components/composite/list";
 import { MovieCard } from "@/components/composite/movie";
 
 interface DetailSimilarProps {
-  params: {
-    id: string;
-  };
-  searchParams: {
-    page: string;
-  };
+  params: SimpleIdParams;
+  searchParams: SearchPageParams;
 }
 
-export async function generateMetadata({ params }: DetailSimilarProps) {
-  params = await params;
+export async function generateMetadata(props: DetailSimilarProps) {
+  const params = await props.params;
   const { title } = await tmdb.movie.detail({
     id: params.id,
   });
@@ -22,8 +20,9 @@ export async function generateMetadata({ params }: DetailSimilarProps) {
   };
 }
 
-export default async function DetailSimilar({ params, searchParams }: DetailSimilarProps) {
-  params = await params;
+export default async function DetailSimilar(props: DetailSimilarProps) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const {
     results: movies,
     total_pages: totalPages,

@@ -1,18 +1,16 @@
+import type { SimpleIdParams } from "@/types/params";
+import type { SearchPageParams } from "@/types/search";
 import { tmdb } from "@/lib/tmdb/api";
 import { ListPagination } from "@/components/composite/list";
 import { UserReviewCard } from "@/components/composite/user";
 
 interface DetailReviewsProps {
-  params: {
-    id: string;
-  };
-  searchParams: {
-    page: string;
-  };
+  params: SimpleIdParams;
+  searchParams: SearchPageParams;
 }
 
-export async function generateMetadata({ params }: DetailReviewsProps) {
-  params = await params;
+export async function generateMetadata(props: DetailReviewsProps) {
+  const params = await props.params;
   const { title } = await tmdb.movie.detail({
     id: params.id,
   });
@@ -21,8 +19,9 @@ export async function generateMetadata({ params }: DetailReviewsProps) {
     title: `Reviews - ${title}`,
   };
 }
-export default async function DetailReviews({ params, searchParams }: DetailReviewsProps) {
-  params = await params;
+export default async function DetailReviews(props: DetailReviewsProps) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const { results, page, total_pages } = await tmdb.movie.reviews({
     id: params.id,
     page: searchParams.page,
