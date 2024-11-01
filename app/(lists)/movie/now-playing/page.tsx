@@ -14,6 +14,7 @@ export async function generateMetadata() {
 }
 
 export default async function NowPlaying({ searchParams }: ListPageProps) {
+  searchParams = await searchParams;
   return (
     <MovieList
       list="now_playing"

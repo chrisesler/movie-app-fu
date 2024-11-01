@@ -12,6 +12,7 @@ interface DetailProps {
 }
 
 export default async function Detail({ params }: DetailProps) {
+  params = await params;
   const {
     status,
     release_date,

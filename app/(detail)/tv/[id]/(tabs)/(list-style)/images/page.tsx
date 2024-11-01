@@ -8,6 +8,7 @@ interface DetailImagesProps {
 }
 
 export async function generateMetadata({ params }: DetailImagesProps) {
+  params = await params;
   const { name } = await tmdb.tv.detail({
     id: params.id,
   });
@@ -18,6 +19,7 @@ export async function generateMetadata({ params }: DetailImagesProps) {
 }
 
 export default async function DetailImages({ params }: DetailImagesProps) {
+  params = await params;
   const { posters, backdrops } = await tmdb.tv.images({
     id: params.id,
     langs: "en",

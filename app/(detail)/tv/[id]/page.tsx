@@ -8,6 +8,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { MediaBackdrop } from "@/components/composite/media";
 
 export default async function Detail({ params }: { params: { id: string } }) {
+  params = await params;
   const {
     first_air_date,
     last_air_date,

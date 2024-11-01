@@ -14,6 +14,7 @@ export async function generateMetadata() {
 }
 
 export default async function Popular({ searchParams }: ListPageProps) {
+  searchParams = await searchParams;
   return (
     <TvList
       list="popular"

@@ -8,6 +8,7 @@ interface VideosProps {
 }
 
 export async function generateMetadata({ params }: VideosProps) {
+  params = await params;
   const { name } = await tmdb.tv.detail({
     id: params.id,
   });
@@ -18,5 +19,6 @@ export async function generateMetadata({ params }: VideosProps) {
 }
 
 export default async function DetailVideos({ params }: VideosProps) {
+  params = await params;
   return <VideoList type="tv" id={params.id} />;
 }

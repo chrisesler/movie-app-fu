@@ -12,6 +12,7 @@ interface DetailRecommendationsProps {
 }
 
 export async function generateMetadata({ params }: DetailRecommendationsProps) {
+  params = await params;
   const { name } = await tmdb.tv.detail({
     id: params.id,
   });
@@ -25,6 +26,8 @@ export default async function DetailRecommendations({
   params,
   searchParams,
 }: DetailRecommendationsProps) {
+  params = await params;
+  searchParams = await searchParams;
   const {
     results: tvShows,
     total_pages: totalPages,

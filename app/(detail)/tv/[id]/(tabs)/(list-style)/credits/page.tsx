@@ -9,6 +9,7 @@ interface DetailCreditsProps {
 }
 
 export async function generateMetadata({ params }: DetailCreditsProps) {
+  params = await params;
   const { name } = await tmdb.tv.detail({
     id: params.id,
   });
@@ -19,6 +20,7 @@ export async function generateMetadata({ params }: DetailCreditsProps) {
 }
 
 export default async function DetailCredits({ params }: { params: { id: string } }) {
+  params = await params;
   const { cast, crew } = await tmdb.tv.credits({ id: params.id });
 
   return (

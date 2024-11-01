@@ -1,5 +1,5 @@
 import { Genre } from "@/lib/tmdb/models/commons";
-import { useMultiSelect } from "@/hooks/useMultiSelect";
+import { useMultiSelect } from "@/hooks/use-multi-select";
 import { badgeVariants } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 

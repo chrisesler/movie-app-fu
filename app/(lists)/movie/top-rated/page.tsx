@@ -14,6 +14,7 @@ export async function generateMetadata() {
 }
 
 export default async function TopRated({ searchParams }: ListPageProps) {
+  searchParams = await searchParams;
   return (
     <MovieList
       list="top_rated"

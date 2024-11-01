@@ -14,6 +14,7 @@ export async function generateMetadata() {
 }
 
 export default async function OnTheAir({ searchParams }: ListPageProps) {
+  searchParams = await searchParams;
   return (
     <TvList
       list="on_the_air"

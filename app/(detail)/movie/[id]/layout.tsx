@@ -21,9 +21,9 @@ interface DetailLayoutProps {
 }
 
 export async function generateMetadata({ params }: DetailLayoutProps) {
-  const aParams = await params;
+  params = await params;
   const { title } = await tmdb.movie.detail({
-    id: aParams.id,
+    id: params.id,
   });
 
   return {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: DetailLayoutProps) {
 }
 
 export default async function DetailLayout({ params, children }: DetailLayoutProps) {
-  const aParams = await params;
+  params = await params;
 
   const {
     id,
@@ -47,7 +47,7 @@ export default async function DetailLayout({ params, children }: DetailLayoutPro
     tagline,
     videos,
   } = await tmdb.movie.detail<WithVideos>({
-    id: aParams.id,
+    id: params.id,
     append: "videos",
   });
 

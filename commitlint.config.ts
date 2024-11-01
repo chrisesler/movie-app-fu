@@ -5,6 +5,7 @@ const Configuration: UserConfig = {
   parserPreset: "conventional-changelog-atom",
   formatter: "@commitlint/format",
   rules: {
+    "header-max-length": [1, "always", 200],
     "type-enum": [
       2,
       "always",

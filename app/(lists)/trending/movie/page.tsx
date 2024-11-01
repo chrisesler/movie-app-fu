@@ -14,6 +14,7 @@ export async function generateMetadata() {
 }
 
 export default async function TrendingPage({ searchParams }: TrendingPageProps) {
+  searchParams = await searchParams;
   return (
     <TrendList
       type="movie"

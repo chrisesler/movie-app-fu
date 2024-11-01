@@ -24,7 +24,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   const { term, handleChange, handleKeyDown, clearSearch } = useSearch(auto);
 
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center ml-4 xs:flex-1 sm:flex-1 lg:flex-none">
       <Search className="absolute left-4 size-4 text-muted-foreground" />
       <Input
         name={name}

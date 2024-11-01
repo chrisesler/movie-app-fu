@@ -12,6 +12,7 @@ interface DetailSimilarProps {
 }
 
 export async function generateMetadata({ params }: DetailSimilarProps) {
+  params = await params;
   const { title } = await tmdb.movie.detail({
     id: params.id,
   });
@@ -22,6 +23,7 @@ export async function generateMetadata({ params }: DetailSimilarProps) {
 }
 
 export default async function DetailSimilar({ params, searchParams }: DetailSimilarProps) {
+  params = await params;
   const {
     results: movies,
     total_pages: totalPages,

@@ -1,10 +1,9 @@
 import { ComponentProps } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import { Bug } from "lucide-react";
-import { navigation, siteConfig } from "@/config";
 
+import { navigation, siteConfig } from "@/config";
 import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/composite/icons";
 
@@ -12,10 +11,10 @@ export const SiteFooter: React.FC<ComponentProps<"footer">> = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-12 border-t bg-[#c94542] flex flex-col items-center">
+    <footer className="relative mt-12 border-t bg-[#c94542]">
       <div className="container flex flex-col lg:flex-row">
         <div className="px-2 py-8 pt-12 text-muted-foreground md:p-12">
-          <Image src="/popcor-logo.png" width={123} height={58} alt="PopCorn" />
+          <Image src="/popcor-logo.png" width={150} height={70} alt="PopCorn" />
         </div>
 
         <div className="flex-1 p-12 px-2 py-8 md:p-12">

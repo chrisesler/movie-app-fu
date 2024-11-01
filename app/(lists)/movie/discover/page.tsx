@@ -20,6 +20,7 @@ export async function generateMetadata() {
 }
 
 export default async function Discover({ searchParams }: ListPageProps) {
+  searchParams = await searchParams;
   const cookieStore = await cookies();
   const region = cookieStore.get("region")?.value ?? "US";
 

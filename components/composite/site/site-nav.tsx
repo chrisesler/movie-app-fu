@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { navigation, NavItem } from "@/config";
-import { useActiveNav } from "@/hooks";
+import { useActiveNav, useIsMobile } from "@/hooks";
 
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -20,10 +20,16 @@ import {
 // import { Icons } from "@/components/composite/icons";
 
 const SiteNav = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="flex items-center">
       <Link href="/">
-        <Image src="/popcor-logo.png" width={123} height={58} alt="PopCorn" />
+        {isMobile ? (
+          <Image src="/popcorn-glyph.png" width={40} height={47} alt="PopCorn" />
+        ) : (
+          <Image src="/popcorn-logo-horizontal.png" width={175} height={47} alt="PopCorn" />
+        )}
       </Link>
 
       <NavigationMenu className="ml-4 hidden lg:flex">

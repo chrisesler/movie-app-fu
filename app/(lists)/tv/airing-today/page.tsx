@@ -14,6 +14,7 @@ export async function generateMetadata() {
 }
 
 export default async function AiringToday({ searchParams }: ListPageProps) {
+  searchParams = await searchParams;
   return (
     <TvList
       list="airing_today"

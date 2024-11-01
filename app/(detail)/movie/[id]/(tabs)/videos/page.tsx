@@ -8,6 +8,7 @@ interface DetailVideosProps {
 }
 
 export async function generateMetadata({ params }: DetailVideosProps) {
+  params = await params;
   const { title } = await tmdb.movie.detail({
     id: params.id,
   });

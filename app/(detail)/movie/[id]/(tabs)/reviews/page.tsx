@@ -12,6 +12,7 @@ interface DetailReviewsProps {
 }
 
 export async function generateMetadata({ params }: DetailReviewsProps) {
+  params = await params;
   const { title } = await tmdb.movie.detail({
     id: params.id,
   });
@@ -21,6 +22,7 @@ export async function generateMetadata({ params }: DetailReviewsProps) {
   };
 }
 export default async function DetailReviews({ params, searchParams }: DetailReviewsProps) {
+  params = await params;
   const { results, page, total_pages } = await tmdb.movie.reviews({
     id: params.id,
     page: searchParams.page,

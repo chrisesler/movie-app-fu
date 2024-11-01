@@ -6,6 +6,7 @@ interface DetailWatchProps {
   };
 }
 
-export default function DetailWatch({ params }: DetailWatchProps) {
+export default async function DetailWatch({ params }: DetailWatchProps) {
+  params = await params;
   return <MediaWatchProviders id={params.id} type="tv" />;
 }

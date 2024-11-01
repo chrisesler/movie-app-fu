@@ -19,6 +19,7 @@ export async function generateMetadata({ searchParams }: SearchProps) {
 }
 
 export default async function Search({ searchParams }: SearchProps) {
+  searchParams = await searchParams;
   if (!searchParams.q) {
     return redirect("/");
   }

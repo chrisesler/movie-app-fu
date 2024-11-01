@@ -13,7 +13,8 @@ export async function generateMetadata() {
   };
 }
 
-export default function Popular({ searchParams }: ListPageProps) {
+export default async function Popular({ searchParams }: ListPageProps) {
+  searchParams = await searchParams;
   return (
     <MovieList
       list="popular"
