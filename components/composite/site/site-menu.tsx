@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Bug, MenuIcon } from "lucide-react";
-import { Bug, MenuIcon } from "lucide-react";
 
 import { navigation, NavItem, siteConfig } from "@/config";
 import { useDialog } from "@/hooks";
