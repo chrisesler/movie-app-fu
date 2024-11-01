@@ -1,6 +1,6 @@
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
+import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
@@ -18,7 +18,6 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { cn } from "@/lib/utils";
 
 const subMenuItemsOne = [
   {
@@ -345,12 +344,10 @@ const Navbar = () => {
                     </a>
                   </div>
                   <div className="mt-2 flex flex-col gap-3">
-                    <SignedOut>
-                      <SignInButton />
-                    </SignedOut>
-                    <SignedIn>
-                      <UserButton />
-                    </SignedIn>
+                    <Button size={"sm"} variant={"outline"}>
+                      Log in
+                    </Button>
+                    <Button size={"sm"}>Sign up</Button>
                   </div>
                 </div>
               </SheetContent>

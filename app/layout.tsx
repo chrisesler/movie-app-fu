@@ -1,10 +1,8 @@
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { ClerkProvider } from "@clerk/nextjs";
+import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Navbar from "@/components/composite/navbar/navbar";
-
-import type { Metadata } from "next";
 
 import "./globals.css";
 
@@ -31,14 +29,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <Navbar />
-          {children}
-          <SpeedInsights />
-        </body>
-      </html>
-    </ClerkProvider>
+    <html suppressHydrationWarning lang="en">
+      <body
+        suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Navbar />
+        {children}
+        <SpeedInsights />
+      </body>
+    </html>
   );
 }
