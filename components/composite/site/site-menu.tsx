@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Bug, MenuIcon } from "lucide-react";
-
 import { navigation, NavItem, siteConfig } from "@/config";
 import { useDialog } from "@/hooks";
+import { Bug as BugIcon, MenuIcon } from "lucide-react";
+
 import { cn } from "@/lib/utils";
 import {
   Accordion,
@@ -70,7 +70,7 @@ export const SiteMenu = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Bug className="mr-2 inline size-4 align-middle" />
+              <BugIcon className="mr-2 inline size-4 align-middle" />
               Submit a bug
             </a>
           </nav>

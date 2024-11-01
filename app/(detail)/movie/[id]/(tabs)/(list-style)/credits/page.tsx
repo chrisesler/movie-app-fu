@@ -3,14 +3,17 @@ import { Crew as CrewType } from "@/lib/tmdb/models";
 import { Separator } from "@/components/ui/separator";
 import { MediaCastCard, MediaCrewCard } from "@/components/composite/media";
 
-interface DetailCreditsProps {
+type DetailCreditsParams = Promise<{
+  id: string;
+}>;
+/*interface DetailCreditsProps {
   params: {
     id: string;
   };
 }
-
-export async function generateMetadata({ params }: DetailCreditsProps) {
-  params = await params;
+*/
+export async function generateMetadata(props: { params: DetailCreditsParams }) {
+  const params = await props.params;
   const { title } = await tmdb.movie.detail({
     id: params.id,
   });
@@ -20,8 +23,9 @@ export async function generateMetadata({ params }: DetailCreditsProps) {
   };
 }
 
-export default async function DetailCredits({ params }: DetailCreditsProps) {
-  params = await params;
+export default async function DetailCredits(props: { params: DetailCreditsParams }) {
+  const params = await props.params;
+
   const { cast, crew } = await tmdb.movie.credits({ id: params.id });
 
   return (

@@ -2,6 +2,7 @@
 
 import { useFilters } from "@/hooks";
 import { SlidersHorizontal } from "lucide-react";
+
 import { WatchProvider } from "@/lib/tmdb/models";
 import { Genre } from "@/lib/tmdb/models/commons";
 import { cn } from "@/lib/utils";

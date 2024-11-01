@@ -1,9 +1,9 @@
 import { ComponentProps } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { navigation, siteConfig } from "@/config";
 import { Bug } from "lucide-react";
 
-import { navigation, siteConfig } from "@/config";
 import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/composite/icons";
 

@@ -1,6 +1,7 @@
 import { availableParams } from "@/config";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+
 import { Movie, RawCombinedCredit, TvShow } from "@/lib/tmdb/models";
 
 export function cn(...inputs: ClassValue[]) {

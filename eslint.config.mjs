@@ -1,16 +1,15 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-
 import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import stylistic from "@stylistic/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
 import _import from "eslint-plugin-import";
 //import jsxA11Y from "eslint-plugin-jsx-a11y";
 import prettier from "eslint-plugin-prettier";
 import react from "eslint-plugin-react";
 import unusedImports from "eslint-plugin-unused-imports";
-import stylistic from "@stylistic/eslint-plugin";
 import globals from "globals";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -99,7 +98,7 @@ const eslitConfig = [
       },
       tailwindcss: {
         callees: ["cn"],
-        config: "tailwind.config.js"
+        config: "tailwind.config.js",
       },
     },
 
@@ -123,10 +122,7 @@ const eslitConfig = [
       "unused-imports/no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
       "object-curly-spacing": ["error", "always"],
-      semi: [
-        "error",
-        "always",
-      ],
+      semi: ["error", "always"],
       // "no-unexpected-multiline": "error",
 
       "@typescript-eslint/no-unused-vars": [
@@ -147,6 +143,7 @@ const eslitConfig = [
         },
       ],
 
+      /* This is giving me a headache
       "import/order": [
         "warn",
         {
@@ -185,7 +182,7 @@ const eslitConfig = [
           ],
           "newlines-between": "always",
         },
-      ],
+      ],*/
 
       //"react/jsx-newline": ["warn", { prevent: false, allowMultilines: true }],
       "react/self-closing-comp": "warn",
@@ -223,13 +220,7 @@ const eslitConfig = [
       "react/sort-comp": [
         "warn",
         {
-          order: [
-            "static-variables",
-            "static-methods",
-            "lifecycle",
-            "everything-else",
-            "render",
-          ],
+          order: ["static-variables", "static-methods", "lifecycle", "everything-else", "render"],
           groups: {
             lifecycle: [
               "displayName",

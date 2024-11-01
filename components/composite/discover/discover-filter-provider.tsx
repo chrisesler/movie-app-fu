@@ -1,5 +1,6 @@
 import { useMultiSelect } from "@/hooks";
 import { Check, ChevronsUpDown } from "lucide-react";
+
 import { WatchProvider } from "@/lib/tmdb/models";
 import { cn, joiner } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
