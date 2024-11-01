@@ -9,6 +9,7 @@ const Configuration: UserConfig = {
       2,
       "always",
       [
+        "assets", // just for assets
         "feat", // New feature
         "fix", // Bug fix
         "docs", // Documentation changes
