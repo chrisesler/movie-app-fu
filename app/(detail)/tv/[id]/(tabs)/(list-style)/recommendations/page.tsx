@@ -1,18 +1,16 @@
+import type { SimpleIdParams } from "@/types/params";
+import type { SearchTvTypeParams } from "@/types/search";
 import { tmdb } from "@/lib/tmdb/api";
 import { ListPagination } from "@/components/composite/list";
 import { TvCard } from "@/components/composite/tv";
 
 interface DetailRecommendationsProps {
-  params: {
-    id: string;
-  };
-  searchParams: {
-    page: string;
-  };
+  params: SimpleIdParams;
+  searchParams: SearchTvTypeParams;
 }
 
-export async function generateMetadata({ params }: DetailRecommendationsProps) {
-  params = await params;
+export async function generateMetadata(props: DetailRecommendationsProps) {
+  const params = await props.params;
   const { name } = await tmdb.tv.detail({
     id: params.id,
   });
@@ -22,12 +20,9 @@ export async function generateMetadata({ params }: DetailRecommendationsProps) {
   };
 }
 
-export default async function DetailRecommendations({
-  params,
-  searchParams,
-}: DetailRecommendationsProps) {
-  params = await params;
-  searchParams = await searchParams;
+export default async function DetailRecommendations(props: DetailRecommendationsProps) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const {
     results: tvShows,
     total_pages: totalPages,

@@ -1,6 +1,8 @@
+import { PropsWithChildren } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import type { SimpleIdParams } from "@/types/params";
 import { tmdb } from "@/lib/tmdb/api";
 import { WithVideos } from "@/lib/tmdb/api/types";
 import { format } from "@/lib/tmdb/utils";
@@ -15,14 +17,11 @@ import {
 import { InfoTooltip } from "@/components/composite/tooltip";
 
 interface DetailLayoutProps {
-  params: {
-    id: string;
-  };
-  children: React.ReactNode;
+  params: SimpleIdParams;
 }
 
-export async function generateMetadata({ params }: DetailLayoutProps) {
-  params = await params;
+export async function generateMetadata(props: DetailLayoutProps) {
+  const params = await props.params;
   const { name } = await tmdb.tv.detail({
     id: params.id,
   });
@@ -32,8 +31,9 @@ export async function generateMetadata({ params }: DetailLayoutProps) {
   };
 }
 
-export default async function DetailLayout({ params, children }: DetailLayoutProps) {
-  params = await params;
+export default async function DetailLayout(props: PropsWithChildren<DetailLayoutProps>) {
+  const params = await props.params;
+  const children = props.children;
   const {
     id,
     name,

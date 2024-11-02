@@ -1,18 +1,16 @@
+import type { SimpleIdParams } from "@/types/params";
+import type { SearchTvTypeParams } from "@/types/search";
 import { tmdb } from "@/lib/tmdb/api";
 import { ListPagination } from "@/components/composite/list";
 import { TvCard } from "@/components/composite/tv";
 
 interface DetailSimilarProps {
-  params: {
-    id: string;
-  };
-  searchParams: {
-    page: string;
-  };
+  params: SimpleIdParams;
+  searchParams: SearchTvTypeParams;
 }
 
-export async function generateMetadata({ params }: DetailSimilarProps) {
-  params = await params;
+export async function generateMetadata(props: DetailSimilarProps) {
+  const params = await props.params;
   const { name } = await tmdb.tv.detail({
     id: params.id,
   });
@@ -22,9 +20,9 @@ export async function generateMetadata({ params }: DetailSimilarProps) {
   };
 }
 
-export default async function DetailSimilar({ params, searchParams }: DetailSimilarProps) {
-  params = await params;
-  searchParams = await searchParams;
+export default async function DetailSimilar(props: DetailSimilarProps) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const {
     results: tvShows,
     total_pages: totalPages,

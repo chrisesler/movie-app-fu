@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { pages } from "@/config";
 
+import type { SearchListTypeParams } from "@/types/search";
 import { tmdb } from "@/lib/tmdb/api";
 import { SortByType } from "@/lib/tmdb/api/types";
 import { filterDiscoverParams } from "@/lib/utils";
@@ -9,7 +10,7 @@ import { ListPagination } from "@/components/composite/list";
 import { MovieCard } from "@/components/composite/movie";
 
 interface ListPageProps {
-  searchParams?: Record<string, string>;
+  searchParams?: SearchListTypeParams;
 }
 
 export async function generateMetadata() {
@@ -19,8 +20,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Discover({ searchParams }: ListPageProps) {
-  searchParams = await searchParams;
+export default async function Discover(props: ListPageProps) {
+  const searchParams = await props.searchParams;
   const cookieStore = await cookies();
   const region = cookieStore.get("region")?.value ?? "US";
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import type { SimpleIdParams } from "@/types/params";
 import { tmdb } from "@/lib/tmdb/api";
 import { format } from "@/lib/tmdb/utils";
 import { cn, formatValue, joiner, pad } from "@/lib/utils";
@@ -7,8 +8,12 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { MediaBackdrop } from "@/components/composite/media";
 
-export default async function Detail({ params }: { params: { id: string } }) {
-  params = await params;
+interface DetailProps {
+  params: SimpleIdParams;
+}
+
+export default async function Detail(props: DetailProps) {
+  const params = await props.params;
   const {
     first_air_date,
     last_air_date,

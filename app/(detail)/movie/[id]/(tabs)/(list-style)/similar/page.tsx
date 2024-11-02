@@ -1,12 +1,12 @@
 import type { SimpleIdParams } from "@/types/params";
-import type { SearchPageParams } from "@/types/search";
+import type { SearchMovieTypeParams } from "@/types/search";
 import { tmdb } from "@/lib/tmdb/api";
 import { ListPagination } from "@/components/composite/list";
 import { MovieCard } from "@/components/composite/movie";
 
 interface DetailSimilarProps {
   params: SimpleIdParams;
-  searchParams: SearchPageParams;
+  searchParams: SearchMovieTypeParams;
 }
 
 export async function generateMetadata(props: DetailSimilarProps) {

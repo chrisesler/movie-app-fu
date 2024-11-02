@@ -1,3 +1,4 @@
+import type { SimpleIdParams } from "@/types/params";
 import { tmdb } from "@/lib/tmdb/api";
 import { WithCombinedCredits, WithImages } from "@/lib/tmdb/api/types";
 import { format } from "@/lib/tmdb/utils";
@@ -15,13 +16,11 @@ import { PersonCreditsTable } from "@/components/composite/person";
 import { TvCard } from "@/components/composite/tv";
 
 interface DetailProps {
-  params: {
-    id: string;
-  };
+  params: SimpleIdParams;
 }
 
-export async function generateMetadata({ params }: DetailProps) {
-  params = await params;
+export async function generateMetadata(props: DetailProps) {
+  const params = await props.params;
   const { name } = await tmdb.person.detail({
     id: params.id,
   });
@@ -31,8 +30,8 @@ export async function generateMetadata({ params }: DetailProps) {
   };
 }
 
-export default async function Detail({ params }: DetailProps) {
-  params = await params;
+export default async function Detail(props: DetailProps) {
+  const params = await props.params;
   const {
     name,
     profile_path,

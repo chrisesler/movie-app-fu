@@ -1,15 +1,14 @@
+import type { SimpleIdParams } from "@/types/params";
 import { tmdb } from "@/lib/tmdb/api";
 import { Separator } from "@/components/ui/separator";
 import { MediaCastCard, MediaCrewCard } from "@/components/composite/media";
 
 interface DetailCreditsProps {
-  params: {
-    id: string;
-  };
+  params: SimpleIdParams;
 }
 
-export async function generateMetadata({ params }: DetailCreditsProps) {
-  params = await params;
+export async function generateMetadata(props: DetailCreditsProps) {
+  const params = await props.params;
   const { name } = await tmdb.tv.detail({
     id: params.id,
   });
@@ -19,8 +18,8 @@ export async function generateMetadata({ params }: DetailCreditsProps) {
   };
 }
 
-export default async function DetailCredits({ params }: { params: { id: string } }) {
-  params = await params;
+export default async function DetailCredits(props: DetailCreditsProps) {
+  const params = await props.params;
   const { cast, crew } = await tmdb.tv.credits({ id: params.id });
 
   return (

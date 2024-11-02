@@ -1,25 +1,23 @@
 import { redirect } from "next/navigation";
 
-import { SearchResultType } from "@/types/search";
+import type { SearchQueryTypeParams, SearchResultType } from "@/types/search";
 import { tmdb } from "@/lib/tmdb/api";
 import { ListPagination } from "@/components/composite/list";
 import { SearchResultCard } from "@/components/composite/search";
 
 interface SearchProps {
-  searchParams: {
-    q: string;
-    page: string;
-  };
+  searchParams: SearchQueryTypeParams;
 }
 
-export async function generateMetadata({ searchParams }: SearchProps) {
+export async function generateMetadata(props: SearchProps) {
+  const searchParams = await props.searchParams;
   return {
     title: `Search results for: ${searchParams.q}`,
   };
 }
 
-export default async function Search({ searchParams }: SearchProps) {
-  searchParams = await searchParams;
+export default async function Search(props: SearchProps) {
+  const searchParams = await props.searchParams;
   if (!searchParams.q) {
     return redirect("/");
   }

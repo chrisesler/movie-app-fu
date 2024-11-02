@@ -1,21 +1,19 @@
 import { Fragment } from "react";
 import Link from "next/link";
 
+import type { SimpleIdParams } from "@/types/params";
+import type { SearchTvTypeParams } from "@/types/search";
 import { tmdb } from "@/lib/tmdb/api";
 import { MediaCard, MediaPoster, MediaRating } from "@/components/composite/media";
 import { TvSeasonDetails } from "@/components/composite/tv";
 
 interface DetailSeasonsProps {
-  params: {
-    id: string;
-  };
-  searchParams: {
-    s: string;
-  };
+  params: SimpleIdParams;
+  searchParams: SearchTvTypeParams;
 }
 
-export async function generateMetadata({ params }: DetailSeasonsProps) {
-  params = await params;
+export async function generateMetadata(props: DetailSeasonsProps) {
+  const params = await props.params;
   const { name } = await tmdb.tv.detail({
     id: params.id,
   });
@@ -25,8 +23,9 @@ export async function generateMetadata({ params }: DetailSeasonsProps) {
   };
 }
 
-export default async function DetailSeasons({ params, searchParams }: DetailSeasonsProps) {
-  params = await params;
+export default async function DetailSeasons(props: DetailSeasonsProps) {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const { seasons } = await tmdb.tv.detail({
     id: params.id,
   });

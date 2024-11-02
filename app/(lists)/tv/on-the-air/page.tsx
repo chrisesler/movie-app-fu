@@ -1,9 +1,10 @@
 import { pages } from "@/config";
 
+import type { SearchListTypeParams } from "@/types/search";
 import { TvList } from "@/components/composite/tv";
 
 interface ListPageProps {
-  searchParams?: Record<string, string>;
+  searchParams?: SearchListTypeParams;
 }
 
 export async function generateMetadata() {
@@ -13,8 +14,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function OnTheAir({ searchParams }: ListPageProps) {
-  searchParams = await searchParams;
+export default async function OnTheAir(props: ListPageProps) {
+  const searchParams = await props.searchParams;
   return (
     <TvList
       list="on_the_air"

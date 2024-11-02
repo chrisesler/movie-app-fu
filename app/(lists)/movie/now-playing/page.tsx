@@ -1,9 +1,10 @@
 import { pages } from "@/config";
 
+import type { SearchListTypeParams } from "@/types/search";
 import { MovieList } from "@/components/composite/movie";
 
 interface ListPageProps {
-  searchParams?: Record<string, string>;
+  searchParams?: SearchListTypeParams;
 }
 
 export async function generateMetadata() {
@@ -13,8 +14,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function NowPlaying({ searchParams }: ListPageProps) {
-  searchParams = await searchParams;
+export default async function NowPlaying(props: ListPageProps) {
+  const searchParams = await props.searchParams;
   return (
     <MovieList
       list="now_playing"

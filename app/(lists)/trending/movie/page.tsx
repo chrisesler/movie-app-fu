@@ -1,9 +1,10 @@
 import { pages } from "@/config";
 
+import type { SearchTrendTypeParams } from "@/types/search";
 import { TrendList } from "@/components/composite/trend";
 
 interface TrendingPageProps {
-  searchParams?: Record<string, string>;
+  searchParams?: SearchTrendTypeParams;
 }
 
 export async function generateMetadata() {
@@ -13,8 +14,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function TrendingPage({ searchParams }: TrendingPageProps) {
-  searchParams = await searchParams;
+export default async function TrendingPage(props: TrendingPageProps) {
+  const searchParams = await props.searchParams;
   return (
     <TrendList
       type="movie"

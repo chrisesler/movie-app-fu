@@ -4,6 +4,6 @@ export * from "./use-filters";
 export * from "./use-mobile";
 export * from "./use-multi-select";
 export * from "./use-pagination";
-export * from "./use-search";
+export * from "./useSearch";
 export * from "./usee-sort";
 export * from "./use-toast";
