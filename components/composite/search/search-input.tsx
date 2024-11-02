@@ -24,14 +24,17 @@ export const SearchInput: React.FC<SearchInputProps> = ({
   const { term, handleChange, handleKeyDown, clearSearch } = useSearch(auto);
 
   return (
-    <div className="relative flex items-center ml-4 xs:flex-1 sm:flex-1 lg:flex-none">
-      <Search className="absolute left-4 size-4 text-muted-foreground" />
+    <div className="relative flex flex-1 items-center ml-0 sm:ml-4 lg:flex-none">
+      <Search className="absolute left-4 size-4 text-white" />
       <Input
         name={name}
         type={type}
         value={value ?? term}
         placeholder={placeholder}
-        className={cn("px-10 text-base", className)}
+        className={cn(
+          "px-10 placeholder:text-white text-white outline-none border-red-900 bg-orange-100/[.2] hover:bg-orange-100/[.3] focus:bg-orange-100/[.3]",
+          className
+        )}
         onChange={onChange ?? handleChange}
         onKeyDown={onKeyDown ?? handleKeyDown}
       />

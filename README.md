@@ -109,3 +109,11 @@ Want to implement Clerk for user authentication and management
 Supabase is a postgres based opensource firebase alternative. Would like to use it for its database feature for storing user selections like favorites or collections.
 
 Another feature of Supabase is that it has the ability to work as a vector database, which might come in handy for AI related movie suggestions or reviews.
+
+## Storybook
+
+Add storybook so there are component documentation
+
+## Electron
+
+Potentially add ability to build as electron app

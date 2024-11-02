@@ -13,8 +13,21 @@ export const SiteFooter: React.FC<ComponentProps<"footer">> = () => {
   return (
     <footer className="relative mt-12 border-t bg-[#c94542]">
       <div className="container flex flex-col lg:flex-row">
-        <div className="px-2 py-8 pt-12 text-muted-foreground md:p-12">
-          <Image src="/popcor-logo.png" width={150} height={70} alt="PopCorn" />
+        <div className="px-2 py-8 pt-12 text-muted-foreground flex flex-col justify-items-start items-center lg:-mt-[22px] md:pb-4 md:items-center">
+          <div className="relative w-[300px] h-[140px] lg:w-[150px] lg:h-[70px]">
+            <Image src="/popcor-logo.png" layout="fill" objectFit="cover" alt="PopCorn" />
+          </div>
+          <p className="py-2 px-4 flex gap-1 lg:flex-col ">
+            Data provided by
+            <a
+              href={siteConfig.links.tmdb}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground"
+            >
+              TMDB
+            </a>
+          </p>
         </div>
 
         <div className="flex-1 p-12 px-2 py-8 md:p-12">
@@ -74,19 +87,6 @@ export const SiteFooter: React.FC<ComponentProps<"footer">> = () => {
                   className="text-foreground"
                 >
                   <Icons.Vercel className="inline size-3 fill-current align-middle" /> Vercel
-                </a>
-                .
-              </p>
-
-              <p className="mt-8">
-                Data provided by{" "}
-                <a
-                  href={siteConfig.links.tmdb}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground"
-                >
-                  TMDB
                 </a>
                 .
               </p>

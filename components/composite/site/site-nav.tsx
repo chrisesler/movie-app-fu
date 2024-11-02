@@ -53,9 +53,15 @@ const SiteNavItem = ({ title, icon, items, href, description }: NavItem) => {
   const isActive = useActiveNav(href);
   const Icon = icon;
 
+  const menuTriggerClasses = "bg-[#a51210] accent-red-50/[.1]";
+
+  const menuTriggerAccent = "bg-[#910602] accent-red-50/[.2]";
+
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger className={cn(isActive && "bg-accent", "gap-2")}>
+      <NavigationMenuTrigger
+        className={cn(isActive && menuTriggerAccent, "gap-2", menuTriggerClasses)}
+      >
         <Icon className="size-4" /> {title}
       </NavigationMenuTrigger>
       <NavigationMenuContent>
