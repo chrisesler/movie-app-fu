@@ -52,10 +52,10 @@ run `npm install`
 
 create a `.env.local` file and place your API values from TMDB and Sentry. You'll also be adding your sentry DSN.
 
-`TMDB_API_KEY`
-`TMDB_ACCESS_TOKEN`
-`SENTRY_AUTH_TOKEN`
-`NEXT_PUBLIC_SENTRY_DSN`
+- `TMDB_API_KEY`
+- `TMDB_ACCESS_TOKEN`
+- `SENTRY_AUTH_TOKEN`
+- `NEXT_PUBLIC_SENTRY_DSN`
 
 # NEXTJS (to run the project locally)
 
